@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+$for(author-meta)$
+  <meta name="author" content="$author-meta$">
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$">
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+  <style type="text/css">code{white-space: pre;}</style>
+$if(quotes)$
+  <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+$endif$
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+$for(css)$
+  <link rel="stylesheet" href="$css$">
+$endfor$
+$if(math)$
+  $math$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+
+  <style>
+    .columns-reversed {
+      flex-direction: row-reverse;
+    }
+
+    .rym-sticky {
+      position: sticky;
+      top: 1rem;
+    }
+  </style>
+
+</head>
+<body>
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+
+<header class="hero">
+<div class="hero-body">
+<div class="container">
+<h1 class="title">$title$</h1>
+$if(subtitle)$
+<h1 class="subtitle">$subtitle$</h1>
+$endif$
+$for(author)$
+<h2 class="author">$author$</h2>
+$endfor$
+$if(date)$
+<h3 class="date">$date$</h3>
+$endif$
+</div>
+</div>
+</header>
+$endif$
+
+<section class="section">
+<div class="container">
+<div class="columns columns-reversed is-8 is-variable">
+
+$if(toc)$
+<div class="column is-narrow">
+<div class="rym-sticky">
+<h1 class="title is-4">$title$</h1>
+$if(subtitle)$
+<h1 class="subtitle is-5">$subtitle$</h1>
+$endif$
+$for(author)$
+<h2 class="author title is-6">$author$</h2>
+$endfor$
+$if(date)$
+<h3 class="date title is-6">$date$</h3>
+$endif$
+
+<aside class="menu" id="$idprefix$TOC">
+$toc$
+</aside>
+</div>
+</div>
+$endif$
+
+
+<div class="column">
+
+<div class="content">
+$body$
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<nav class="level is-mobile">
+  <p class="level-item ">
+    &copy; 2018&nbsp;$for(author)$<a class="link" href="$authorUrl$">$author$</a>$endfor$
+  </p>
+  <p class="level-item ">
+    <a class="link" href="$sourcefile$">source Markdown</a>
+  </p>
+</nav>
+
+
+
+
+</div>
+</footer>
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+<script>
+  document.querySelector('#TOC > ul').classList.add('menu-list')
+</script>
+
+</body>
+</html>
