@@ -5,8 +5,6 @@ authorUrl: http://robin.millette.info/
 author:
 - Robin Millette
 lang: fr
-css:
-- css/bulmaswatch-cyborg.min.css
 ...
 
 # La longue histoire, côté client { .section }
