@@ -56,6 +56,19 @@ $endif$
     .content a {
       text-decoration: underline;
     }
+
+    @media (min-width: 769px) {
+      .content .section {
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .content .section {
+        padding-left: 1em;
+      }
+    }
+
   </style>
 $for(header-includes)$
   $header-includes$
