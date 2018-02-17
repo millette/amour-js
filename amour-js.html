@@ -9,7 +9,6 @@
   <title>J’aime le JavaScript</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="css/bulmaswatch-cyborg.min.css">
-
   <style>
     .columns-reversed {
       flex-direction: row-reverse;
@@ -17,10 +16,21 @@
 
     .rym-sticky {
       position: sticky;
-      top: 1rem;
+      top: 14em;
+    }
+
+    .level1 > h1, .level2 > h2 {
+      margin-top: 1.5em;
+    }
+
+    .columns-reversed .content > .section:first-of-type {
+      padding-top: 0;
+    }
+
+    .columns-reversed .content > .section:first-of-type > h1 {
+      margin-top: 0.5em;
     }
   </style>
-
 </head>
 <body>
 
@@ -34,46 +44,59 @@
 </div>
 </header>
 
-<section class="section">
 <div class="container">
 <div class="columns columns-reversed is-8 is-variable">
 
 <div class="column is-narrow">
-<div class="rym-sticky">
+<div class="rym-sticky box">
 <h1 class="title is-4">J’aime le JavaScript</h1>
 <h2 class="author title is-6">Robin Millette</h2>
 <h3 class="date title is-6">2018-02-14</h3>
 
 <aside class="menu" id="TOC">
 <ul>
-<li><a href="#la-longue-histoire-côté-client">La longue histoire, côté client</a></li>
+<li><a href="#la-longue-histoire-côté-client">La longue histoire, côté client</a><ul>
+<li><a href="#la-guerre">La guerre</a></li>
+<li><a href="#ajax">Ajax</a></li>
+<li><a href="#html5">HTML5</a></li>
+</ul></li>
 <li><a href="#la-norme-javascript">La norme JavaScript</a></li>
-<li><a href="#la-petite-histoire-côté-serveur">La petite histoire, côté serveur</a></li>
+<li><a href="#la-petite-histoire-côté-serveur">La petite histoire, côté serveur</a><ul>
+<li><a href="#node.js-v8-google">Node.js (V8, Google)</a></li>
+</ul></li>
 </ul>
 </aside>
 </div>
 </div>
 
-
-<div class="column">
-
-<div class="content">
-<h2 id="la-longue-histoire-côté-client">La longue histoire, côté client</h2>
+<div class="column content">
+<section id="la-longue-histoire-côté-client" class="level1 section">
+<h1>La longue histoire, côté client</h1>
 <p>Je me rappelle mon premier jeu HTML, c’était en 1997 ou quelque chose comme ça. En fait, c’était surtout une expérience pour voir ce qui était possible avec du HTML statique, sans même de JavaScript. L’action était basée sur le vénérable <a href="https://en.wikipedia.org/wiki/Meta_refresh">meta refresh</a> avec une granularité d’une seconde.</p>
 <p>Les années suivantes j’ai fait un peu de JavaScript et franchement je trouvais ça reboutant. C’était l’époque où Microsoft Internet Explorer utilisait JScript, avant même jQuery. Je n’ai pas de nostalgie pour cette époque. Je faisais du C++ et un peu de C à cette époque. JavaScript avait toutes les apparences du C avec ses accollades et points-virgules, mais sans la gestion de la mémoire.</p>
 <p>Les apparences peuvent être trompeuses. Ce que je ne savais pas à ce moment là, c’est que le JavaScript s’inspirait beaucoup plus de Scheme ou de Lisp que du C. Avis aux amateurs d’Emacs et de ELisp qui voudraient jeter un nouveau regard sur le JavaScript ;-)</p>
-<h3 id="la-guerre">La guerre</h3>
+<section id="la-guerre" class="level2">
+<h2>La guerre</h2>
 <p>Je n’étais pas le seul à trouver le JavaScript pénible. Le problème demeure le même: on <em>ship</em> du code qui sera exécuté (interprété) par des environnements hors de notre controle. Une fois <em>shippé</em>, le code devrait survivre aux nombreuses itérations des environnements. Au moins, nous avons des standards W3C, WhatWG et ECMA, mais rien ne garanti qu’ils sont implémentés, ou implémentés correctement, ou même que le standard est assez clair pour ne pas laisser de place à de multiples interprétations. Le JavaScript sur le web est à l’intersection de nombreuses influences et a un rôle difficile à jouer. N’oublions pas non plus la guerre que se livrait Microsoft et… c’était qui déjà le concurrent? Vous savez, celui qui a mis au monde «l’Open source»? En tous ças, ça me reviendra bien un jour.</p>
 <p>Cet épisode m’a mis sur mes gardes face au JavaScript. Depuis, je privilégie une approche d’améliorations progressives, où le JavaScript n’est pas requis au bon fonctionnement d’un site, mais améliore l’expérience utilisateur. Bien entendu, dans certains cas, le JavaScript sera requis pour accomplir nos objectifs, mais peut-être pas pour toutes les fonctionnalités du site.</p>
-<h3 id="ajax">Ajax</h3>
+</section>
+<section id="ajax" class="level2">
+<h2>Ajax</h2>
 <p>En 2005 est venu le <em>revival</em> Ajax et l’usage du JavaScript a gagné en ampleur. De nouvelles librairies sont apparues, des frameworks, et des sites qui dépendaient de JavaScript pour fonctionner. Techniquement, les fonctionnalités nécéssaires à Ajax existaient déjà dans les navigateurs depuis 1999 ou 2000, je pense à <code>XMLHttpRequest()</code> qui permet à un script de faire un appel HTTP. Cette mode chargée en JavaScript ne m’a jamais tellement plu d’ailleurs.</p>
 <p>Rappel sur HTTP, ce transport supporte plusieurs méthodes, dont GET qu’on utilise chaque fois qu’on télécharge une ressource et POST pour soumettre un long formulaire à un serveur. Il existe aussi PUT, DELETE, PATCH, etc. et ces méthodes sont disponibles via <code>XMLHttpRequest()</code> (on dit souvent Ajax).</p>
-<h3 id="html5">HTML5</h3>
+</section>
+<section id="html5" class="level2">
+<h2>HTML5</h2>
 <p>Ce qui nous amène en 2014 et l’arrivée de HTML5 et depuis, d’une <a href="https://www.w3.org/standards/techs/js">centaine</a> de <a href="https://spec.whatwg.org/">nouveux API</a> pour JavaScript, de l’état de la pile au stockage local en passant par le vibrateur. Parallèlement, c’est la montée du <em>Model-View-Controller</em> côté client et l’arrivée de Backbone, Ember puis Angular, React, Vue et combien d’autres. Le web se prend dorénavant pour une plateforme en bonne et due forme prête à rivaliser avec les applications bureau et mobiles. On est loin d’y être, mais on s’en approche tous les jours.</p>
 <p>Ces développements viennent avec leur lot de complexité, et qui dit complexité dit outillage.</p>
-<h2 id="la-norme-javascript">La norme JavaScript</h2>
+</section>
+</section>
+<section id="la-norme-javascript" class="level1 section">
+<h1>La norme JavaScript</h1>
 <p>Il n’existe pas de standard qui se nomme JavaScript. Il faut plutôt se référer à la norme ECMA-262 (ECMAScript) pour trouver les bases du langage en évolution constante. JScript (Microsoft) et ActionScript (Adobe Flash, Director) aussi reposent sur ECMA-262, et <a href="https://en.wikipedia.org/wiki/List_of_ECMAScript_engines">beaucoup plus</a>. Vous trouverez dans cette liste des implémentations aussi bien pour les clients que pour les serveurs.</p>
-<h2 id="la-petite-histoire-côté-serveur">La petite histoire, côté serveur</h2>
+</section>
+<section id="la-petite-histoire-côté-serveur" class="level1 section">
+<h1>La petite histoire, côté serveur</h1>
 <p>JavaScript n’est pas un nouveau venu sur le serveur. Ça faisait d’ailleurs partie de la stratégie de Netscape d’utiliser JavaScript côté serveur et côté client. C’est seulement quand Ryan Dahl a utilisé V8, l’engin JavaScript de Google Chrome, pour créer node.js que le langage a vraiment pris son envol côté serveur.</p>
 <p>Historiquement, on peut énumérer:</p>
 <ul>
@@ -81,14 +104,14 @@
 <li>1997 - Rhino (en Java, Netscape)</li>
 <li>2009 - Node.js (en C++ et JavaScript)</li>
 </ul>
-<h3 id="node.js-v8-google">Node.js (V8, Google)</h3>
+<section id="node.js-v8-google" class="level2">
+<h2>Node.js (V8, Google)</h2>
 <p>Node.js repose sur l’engin JavaScript V8, précédemment utilisé par le navigateur Google Chrome, pour implémenter un serveur basé sur une architecture orientée événements et CommonJS pour la gestion des modules puisqu’à l’époque, la norme ECMA-262 ne précisait pas le concept de modules. Dorénavent, on pourra compter sur <code>import</code> et <code>export</code> tels que définis dans la norme pour gérer nos modules.</p>
-</div>
-</div>
-
-</div>
-</div>
 </section>
+</section>
+</div>
+</div>
+</div>
 
 <footer class="footer">
 <div class="container">

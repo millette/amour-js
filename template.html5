@@ -29,7 +29,6 @@ $endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
-
   <style>
     .columns-reversed {
       flex-direction: row-reverse;
@@ -37,10 +36,21 @@ $endfor$
 
     .rym-sticky {
       position: sticky;
-      top: 1rem;
+      top: 14em;
+    }
+
+    .level1 > h1, .level2 > h2 {
+      margin-top: 1.5em;
+    }
+
+    .columns-reversed .content > .section:first-of-type {
+      padding-top: 0;
+    }
+
+    .columns-reversed .content > .section:first-of-type > h1 {
+      margin-top: 0.5em;
     }
   </style>
-
 </head>
 <body>
 $for(include-before)$
@@ -66,13 +76,12 @@ $endif$
 </header>
 $endif$
 
-<section class="section">
 <div class="container">
 <div class="columns columns-reversed is-8 is-variable">
 
 $if(toc)$
 <div class="column is-narrow">
-<div class="rym-sticky">
+<div class="rym-sticky box">
 <h1 class="title is-4">$title$</h1>
 $if(subtitle)$
 <h1 class="subtitle is-5">$subtitle$</h1>
@@ -91,17 +100,11 @@ $toc$
 </div>
 $endif$
 
-
-<div class="column">
-
-<div class="content">
+<div class="column content">
 $body$
 </div>
 </div>
-
 </div>
-</div>
-</section>
 
 <footer class="footer">
 <div class="container">
