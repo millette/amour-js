@@ -42,7 +42,7 @@ $endif$
     }
 
     .level1 > h1, .level2 > h2 {
-      margin-top: 1.5em;
+      margin-top: 1em;
     }
 
     .columns-reversed .content > .section:first-of-type {
@@ -55,6 +55,10 @@ $endif$
 
     .content a {
       text-decoration: underline;
+    }
+
+    .content .section {
+        padding-left: 0;
     }
 
     @media (min-width: 769px) {
